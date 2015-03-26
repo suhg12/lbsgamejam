@@ -1,4 +1,4 @@
-LBS Game Jam Helsingborg
+LBS Game Jam Helsingborg - Spring 2015
 ========================
 
 ## Rules...
