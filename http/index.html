@@ -3,9 +3,51 @@
 	<head>
 		<title>LBS Game Jam</title>
 
+		<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic|Droid+Sans:400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/main.css">
+
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery.countdown.min.js"></script>
+
+		<script>
+			$(function(){
+				$("#countdown")
+					.countdown("2015/04/10 08:00", function(event) {
+						var totalHours = event.offset.totalDays * 24 + event.offset.hours;
+						$(this).html(
+								totalHours + event.strftime(' timmar<br>%-M %!M:minut,minuter;<br>%-S %!S:sekund,sekunder;')
+						);
+					});
+			});
+		</script>
 	</head>
 	<body>
-		Hello!
+		<div id="page">
+			<div id="banner">
+				<a href="#">
+					<h1>
+						<div id="logo">
+							<div>
+								LBS<div>TM</div>
+							</div>
+						</div>
+						<div id="title">
+							<span id="title-upper">Game Jam</span>
+							<hr>
+							<span id="title-lower">Helsingborg</span>
+						</div>
+						<!--<div id="when">
+							<div id="season">Spring</div>
+							<div id="year">2015</div>
+						</div>-->
+					</h1>
+				</a>
+			</div>
+			<div id="content">
+				<div id="countdown">
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
