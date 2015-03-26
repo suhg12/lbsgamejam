@@ -19,6 +19,12 @@
 								totalHours + event.strftime(' timmar<br>%-M %!M:minut,minuter;<br>%-S %!S:sekund,sekunder;')
 						);
 					});
+
+				$("#nav-table>a").click(function()
+						{
+							$("#nav-table>a").removeClass("selected-page");
+							$(this).addClass("selected-page");
+						});
 			});
 		</script>
 	</head>
@@ -44,8 +50,19 @@
 					</h1>
 				</a>
 			</div>
-			<div id="content">
-				<div id="countdown">
+			<div id="content-table">
+				<div id="nav-bar">
+					<div id="nav-table">
+						<a href="#" class="selected-page"><div class="link">Nedräkning</div></a>
+						<span><div class="link">Regler</div></span>
+						<span><div class="link">Anmälning</div></span>
+						<span><div class="link">IRC</div></span>
+						<span><div class="link">Resultat</div></span>
+					</div>
+				</div>
+				<div id="content">
+					<div id="countdown">
+					</div>
 				</div>
 			</div>
 		</div>
