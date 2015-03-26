@@ -16,7 +16,7 @@ $(function(){
 		.countdown("2015/04/10 07:00 UTC", function(event) {
 			var totalHours = event.offset.totalDays * 24 + event.offset.hours;
 			$(this).html(
-					totalHours + event.strftime(' timmar<br>%-M %!M:minut,minuter;<br>%-S %!S:sekund,sekunder;')
+					totalHours + event.strftime(' timmar <span>|</span> %-M %!M:minut,minuter; <span>|</span> %-S %!S:sekund,sekunder;')
 					);
 		});
 
