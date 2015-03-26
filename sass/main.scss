@@ -259,6 +259,19 @@ body
 			margin-bottom: 20px;
 			font-weight: 300;
 		}
+
+		display: none;
+		position: absolute;
+		//margin-left: 200%;
+		//transition: margin-left 0.4s;
+	}
+
+	.displayed-content
+	{
+		position: static;
+		display: block;
+		//margin-left: 0px;
+		//transition: margin-left 0.4s;
 	}
 }
 

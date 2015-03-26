@@ -1,14 +1,28 @@
+function changeUrl(title, url) {
+	if (typeof (history.pushState) != "undefined") {
+		var obj = { Title: title, Url: url };
+		history.pushState(obj, obj.Title, obj.Url);
+	}
+}
+
 function goToPage(page)
 {
-	return false;
 	var page = /[^/]*$/.exec(page)[0];
 	if(page === "" || page === "#")
-	   page = "#countdown";	
+		return;
 
-	//var pageLink = 
+	var pageLink = $("#nav-table>a[href='" + page + "']");
+	if(pageLink.length === 0)
+		return;
 
 	$("#nav-table>a").removeClass("selected-page");
-	alert(page);
+	pageLink.addClass("selected-page");
+	$("#content>div").removeClass("displayed-content");
+	$(page).addClass("displayed-content");
+
+	var title = $(page).find("h2").text() + " - LBS Game Jam";
+	document.title = title;
+	changeUrl(title, page);
 }
 
 $(function(){
@@ -22,8 +36,6 @@ $(function(){
 
 	$("#nav-table>a").click(function()
 			{
-				$("#nav-table>a").removeClass("selected-page");
-				$(this).addClass("selected-page");
 				goToPage(this.href);
 				return false;
 			});
@@ -36,4 +48,6 @@ $(function(){
 					$(that).find("h1").removeClass("banner-rotated");
 				}, 1000);
 	});
+
+	goToPage(document.location);
 });
