@@ -258,6 +258,11 @@ body
 			font-size: 14pt;
 			margin-bottom: 20px;
 			font-weight: 300;
+
+			strong
+			{
+				font-weight: 600;
+			}
 		}
 
 		display: none;
