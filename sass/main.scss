@@ -230,6 +230,12 @@ body
 	}
 }
 
+.banner-rotated
+{
+	transform: rotate(360deg);
+	transition: transform 1s;
+}
+
 #content
 {
 }

@@ -25,13 +25,22 @@
 							$("#nav-table>a").removeClass("selected-page");
 							$(this).addClass("selected-page");
 						});
+			
+				$("#banner>a").click(function(){
+					$(this).find("h1").addClass("banner-rotated");
+					var that = this;
+					setTimeout(function()
+							{
+								$(that).find("h1").removeClass("banner-rotated");
+							}, 1000);
+				});
 			});
 		</script>
 	</head>
 	<body>
 		<div id="page">
 			<div id="banner">
-				<a href="#">
+				<a href="#" onClick="$(this).animate({transform: 'rotate(180deg);'}, 1000);">
 					<h1>
 						<div id="logo">
 							<div>
