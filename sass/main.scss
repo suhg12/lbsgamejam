@@ -5,6 +5,7 @@ $logo-color: #d0d0d0;
 
 body
 {
+	background-color: $background-color;
 }
 
 *:focus
@@ -15,7 +16,6 @@ body
 #page
 {
 	position: absolute;
-	background-color: $background-color;
 	box-shadow: 0px 0px 100px 50px $edge-shadow-color inset;
 	width: 100%;
 	min-height: 100%;
@@ -237,6 +237,28 @@ body
 
 #content
 {
+	margin-left: 100px;
+	>div
+	{
+		color: $banner-color;
+		margin-bottom: 100px;
+
+		h2
+		{
+			font-family: "Source Sans Pro";
+			font-size: 48pt;
+			margin-bottom: 30px;
+			font-weight: 600;
+		}
+
+		p
+		{
+			font-family: "Droid Sans";
+			font-size: 14pt;
+			margin-bottom: 20px;
+			font-weight: 300;
+		}
+	}
 }
 
 #countdown

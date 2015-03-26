@@ -10,32 +10,7 @@
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/jquery.countdown.min.js"></script>
 
-		<script>
-			$(function(){
-				$("#countdown")
-					.countdown("2015/04/10 07:00 UTC", function(event) {
-						var totalHours = event.offset.totalDays * 24 + event.offset.hours;
-						$(this).html(
-								totalHours + event.strftime(' timmar<br>%-M %!M:minut,minuter;<br>%-S %!S:sekund,sekunder;')
-						);
-					});
-
-				$("#nav-table>a").click(function()
-						{
-							$("#nav-table>a").removeClass("selected-page");
-							$(this).addClass("selected-page");
-						});
-			
-				$("#banner>a").click(function(){
-					$(this).find("h1").addClass("banner-rotated");
-					var that = this;
-					setTimeout(function()
-							{
-								$(that).find("h1").removeClass("banner-rotated");
-							}, 1000);
-				});
-			});
-		</script>
+		<script src="js/main.js"></script>
 	</head>
 	<body>
 		<div id="page">
@@ -62,16 +37,37 @@
 			<div id="content-table">
 				<div id="nav-bar">
 					<div id="nav-table">
-						<a href="#" class="selected-page"><div class="link">Nedräkning</div></a>
-						<span><div class="link">Information</div></span>
-						<span><div class="link">Regler</div></span>
-						<span><div class="link">Anmälning</div></span>
-						<span><div class="link">IRC</div></span>
-						<span><div class="link">Resultat</div></span>
+						<a href="#countdown" class="selected-page"><div class="link">Nedräkning</div></a>
+						<a href="#information"><div class="link">Information</div></a>
+						<a href="#rules"><div class="link">Regler</div></a>
+						<a href="#registration"><div class="link">Anmälning</div></a>
+						<a href="#irc"><div class="link">IRC</div></a>
+						<a href="#results"><div class="link">Resultat</div></a>
 					</div>
 				</div>
 				<div id="content">
 					<div id="countdown">
+					</div>
+					<div id="information">
+						<h2>Information</h2>
+						<p>Lorem ipsum...</p>
+					</div>
+					<div id="rules">
+						<h2>Regler</h2>
+						<p>Lorem ipsum...</p>
+					</div>
+					<div id="registration">
+						<h2>Anmälan</h2>
+						<p>Lorem ipsum...</p>
+					</div>
+					<div id="irc">
+						<h2>IRC</h2>
+						<p>Lorem ipsum...</p>
+						<iframe src="https://webchat.quakenet.org/?channels=lbsgamejam&uio=d4" width="647" height="400"></iframe>
+					</div>
+					<div id="results">
+						<h2>Resultat</h2>
+						<p>Lorem ipsum...</p>
 					</div>
 				</div>
 			</div>
