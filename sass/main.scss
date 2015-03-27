@@ -56,26 +56,29 @@ body
 	{
 		border-radius: 0px 0px 40px 0px;
 		background-color: $logo-color;
-		padding: 20px 40px;
+		padding: 30px 45px;
+		padding-right: 35px;
+		padding-bottom: 25px;
 
 		box-shadow: 2px 2px 20px 5px #181818;
 
 		div
 		{
-			letter-spacing: -10px;
-			font-weight: 900;
+			letter-spacing: -9px;
 			color: $banner-color;
+			font-weight: normal;
 			font-size: 130px;
 			line-height: 130px;
 			height: 130px;
-			font-family: "Source Sans Pro";
+			font-family: "webfont";
 
 			div
 			{
-				font-size: 16pt;
+				font-family: "Source Sans Pro";
+				font-size: 14pt;
 				letter-spacing: 0px;
 				float: right;
-				margin-top: -30px;
+				margin-top: -40px;
 				margin-left: 4px;
 			}
 		}
