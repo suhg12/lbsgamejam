@@ -20,6 +20,7 @@ body
 	//box-shadow: 0px 0px 100px 50px $edge-shadow-color inset;
 	width: 100%;
 	min-height: 100%;
+	overflow-x: hidden;
 }
 
 #banner
@@ -29,6 +30,8 @@ body
 	background-color: $banner-color;
 	box-shadow: 0px 0px 40px 10px #1f1f1f inset;
 	width: 100%;
+	overflow-x: hidden;
+	white-space: nowrap;
 
 	a:link
 	{
@@ -146,8 +149,8 @@ body
 
 #content-table
 {
-	width: 70%;
-	max-height: 1200px;
+	width: 100%;
+	max-width: 1200px;
 	display: table;
 	table-layout: fixed;
 	margin-left: auto;
@@ -315,3 +318,16 @@ body
 }
 
 
+#webchat
+{
+	width: 100%;
+	max-width: 647px;
+	height: 400px;
+}
+
+#googleform
+{
+	width: 100%;
+	max-width: 760px;
+	height: 500px;
+}
