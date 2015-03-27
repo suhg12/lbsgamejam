@@ -64,6 +64,7 @@ $(function(){
 				{
 					$(that).find("h1").removeClass("banner-rotated");
 				}, 1000);
+		return false;
 	});
 
 	goToPage(document.location);
