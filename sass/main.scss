@@ -278,7 +278,10 @@ body
 			font-size: 14pt;
 			font-weight: 300;
 
-			line-height: 40px;
+			li
+			{
+				margin-bottom: 20px;
+			}
 		}
 
 		display: none;
