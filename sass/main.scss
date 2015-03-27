@@ -267,6 +267,16 @@ body
 			}
 		}
 
+		ul
+		{
+			list-style-type: disc;
+			font-family: "Droid Sans";
+			font-size: 14pt;
+			font-weight: 300;
+
+			line-height: 40px;
+		}
+
 		display: none;
 		position: static;
 	}
@@ -296,4 +306,5 @@ body
 		font-weight: 100;
 	}
 }
+
 
