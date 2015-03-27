@@ -42,6 +42,14 @@ function goToPage(page, fade)
 	changeUrl(title, pageUrl);
 }
 
+function backendCall(func, data, complete)
+{
+	$.post("backend.fcgi/" + func,
+			JSON.stringify(data),
+			complete,
+			"json");
+}
+
 $(function(){
 	$("#countdown")
 		.countdown("2015/04/10 07:00 UTC", function(event) {
