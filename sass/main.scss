@@ -6,6 +6,7 @@ $logo-color: #d0d0d0;
 body
 {
 	background-color: $background-color;
+	overflow-y: scroll;
 }
 
 *:focus
