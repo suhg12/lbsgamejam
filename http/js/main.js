@@ -16,7 +16,7 @@ function goToPage(page, fade)
 		return;
 
 	var pageUrl = page;
-	page = $(page);
+	page = $(page + "-page");
 
 	$("#nav-table>a").removeClass("selected-page");
 	pageLink.addClass("selected-page");
