@@ -9,7 +9,7 @@ function goToPage(page, fade)
 {
 	page = /[^/]*$/.exec(page)[0];
 	if(page === "" || page === "#")
-		return;
+		page="#information";
 
 	var pageLink = $("#nav-table>a[href='" + page + "']");
 	if(pageLink.length === 0)
