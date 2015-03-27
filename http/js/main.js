@@ -5,9 +5,9 @@ function changeUrl(title, url) {
 	}
 }
 
-function goToPage(page)
+function goToPage(page, fade)
 {
-	var page = /[^/]*$/.exec(page)[0];
+	page = /[^/]*$/.exec(page)[0];
 	if(page === "" || page === "#")
 		return;
 
@@ -15,14 +15,31 @@ function goToPage(page)
 	if(pageLink.length === 0)
 		return;
 
+	var pageUrl = page;
+	page = $(page);
+
 	$("#nav-table>a").removeClass("selected-page");
 	pageLink.addClass("selected-page");
 	$("#content>div").removeClass("displayed-content");
-	$(page).addClass("displayed-content");
+	
+	if(fade)
+	{
+		$("#content>div").not(page).animate({opacity: 0.0}, 200, function()
+				{
+					$("#content>div").not(page).hide();
+					page.show();
+					page.animate({opacity: 1.0}, 200);
+				});
+	}
+	else
+	{
+		$("#content>div").not(page).hide().css("opacity", 0.0);
+		page.show();
+	}
 
-	var title = $(page).find("h2").text() + " - LBS Game Jam";
+	var title = page.find("h2").text() + " - LBS Game Jam";
 	document.title = title;
-	changeUrl(title, page);
+	changeUrl(title, pageUrl);
 }
 
 $(function(){
@@ -36,7 +53,7 @@ $(function(){
 
 	$("#nav-table>a").click(function()
 			{
-				goToPage(this.href);
+				goToPage(this.href, true);
 				return false;
 			});
 

@@ -268,15 +268,11 @@ body
 		}
 
 		display: none;
-		position: absolute;
-		//margin-left: 200%;
-		//transition: margin-left 0.4s;
+		position: static;
 	}
 
 	.displayed-content
 	{
-		position: static;
-		display: block;
 		//margin-left: 0px;
 		//transition: margin-left 0.4s;
 	}
