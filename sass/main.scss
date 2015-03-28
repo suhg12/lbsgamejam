@@ -331,3 +331,56 @@ body
 	max-width: 760px;
 	height: 500px;
 }
+
+#suggest-theme
+{
+	width: 100%;
+	max-width: 400px;
+	display: table;
+	table-layout: fixed;
+	border-radius: 10px;
+	border-collapse: collapse;
+
+	div
+	{
+		display: table-row;
+		width: 100%;
+	}
+
+	input
+	{
+		border: none;
+		height: 48px;
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+		display: table-cell;
+
+		//border: 1px solid #aaaaaa;
+		font-family: "Source Sans Pro";
+		padding: 0px;
+	}
+
+	input[type='text']
+	{
+		border-right: none;
+		color: $banner-color;
+	}
+
+	input[type='submit']
+	{
+		font-size: 20pt;
+		font-weight: 600;
+		//border-left: none;
+		background-color: #70f070;
+		color: white;
+		width: 100px;
+
+		&:hover
+		{
+			background-color: #a0f0a0;
+			cursor: pointer;
+		}
+	}
+}
+
