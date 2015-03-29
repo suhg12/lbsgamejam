@@ -269,6 +269,7 @@ body
 		{
 			margin-bottom: 20px;
 			font-weight: 300;
+			line-height: 1.1em;
 
 			strong
 			{
@@ -297,6 +298,27 @@ body
 	{
 		//margin-left: 0px;
 		//transition: margin-left 0.4s;
+	}
+
+	a
+	{
+		text-decoration: underline;
+
+		&:link
+		{
+			color: $banner-color;
+			font-weight: 600;
+		}
+
+		&:visited
+		{
+			color: $banner-color;
+		}
+
+		&:hover
+		{
+			color: #8a8a8a;
+		}
 	}
 }
 
