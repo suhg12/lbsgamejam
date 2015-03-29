@@ -91,9 +91,14 @@ GET_METHODS = {
 def app(environ, start_response):
     data = environ['QUERY_STRING']
     methods = GET_METHODS
-    if environ['REQUEST_METHOD'] == 'POST':
-        data = json.loads(environ['wsgi.input'].read())
-        methods = POST_METHODS
+
+    try:
+        if environ['REQUEST_METHOD'] == 'POST':
+            data = json.loads(environ['wsgi.input'].read())
+            methods = POST_METHODS
+    except ValueError:
+        start_response('400 Bad Request', [('Content-Type', 'application/json')])
+        return
         
     if environ['PATH_INFO'] in methods:
         config = ConfigParser.SafeConfigParser()
