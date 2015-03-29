@@ -51,6 +51,8 @@ function backendCall(func, data, complete)
 }
 
 $(function(){
+	goToPage(document.location);
+
 	$("#countdown")
 		.countdown("2015/04/10 07:00 UTC", function(event) {
 			var totalHours = event.offset.totalDays * 24 + event.offset.hours;
@@ -75,5 +77,18 @@ $(function(){
 		return false;
 	});
 
-	goToPage(document.location);
+	$("#suggest-theme").submit(function()
+			{
+				var themeInput = $("#suggest-theme>input[type='text']");
+				var theme = themeInput.val().trim();
+
+				if(theme === "")
+					return false;
+
+				backendCall("SuggestTheme", theme);
+				$(this).find("input").prop("disabled", true);
+				$(this).find("input[type='text']").val("Tack!");
+				return false;
+			});
 });
+

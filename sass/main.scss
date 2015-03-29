@@ -331,3 +331,85 @@ body
 	max-width: 760px;
 	height: 500px;
 }
+
+#suggest-theme
+{
+	display: table;
+	table-layout: fixed;
+	border-radius: 10px;
+	border-collapse: collapse;
+	white-space: nowrap;
+	margin-bottom: 30px;
+	
+	margin-left: auto;
+	margin-right: auto;
+
+	input
+	{
+		border: none;
+		height: 48px;
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+		display: table-cell;
+
+		//border: 1px solid #aaaaaa;
+		font-family: "Source Sans Pro";
+		padding: 0px;
+		font-size: 20pt;
+		font-weight: 300;
+	}
+
+	input[type='text']
+	{
+		border: 1px solid white;
+		border-right: none;
+		color: $banner-color;
+		padding-left: 10px;
+		width: 300px;
+
+		&:focus
+		{
+			border: 1px solid #70f070;
+			border-right: none;
+		}
+
+		&:disabled
+		{
+			background: none;
+			border: none;
+			padding-left: 40%;
+
+			transition: brackground, padding-left 0.2s, 0.5s;
+		}
+	}
+
+	input[type='submit']
+	{
+		font-weight: 300;
+		background-color: #70f070;
+		color: white;
+		width: 100px;
+
+		&:hover
+		{
+			background-color: #a0f0a0;
+			cursor: pointer;
+		}
+
+		&:disabled
+		{
+			background-color: #b8b8b8; 
+			opacity: 0;
+			cursor: initial;
+			transition: opacity, background-color 0.2s, 0.2s;
+		}
+	}
+
+	>div
+	{
+		position: relative;
+		font-size: 20pt;
+	}
+}
+
