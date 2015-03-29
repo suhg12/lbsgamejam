@@ -50,6 +50,58 @@ function backendCall(func, data, complete)
 			"json");
 }
 
+function displayKeyCode(code)
+{
+	$("#registration-form *").prop("disabled", true);
+
+	$("#keycode").text(code);
+	$("#keycode-display").fadeIn(1000);
+	$(document).scrollTo($("#keycode-display"), 1000);
+}
+
+var waitingForReply = false;
+function register()
+{
+	if(waitingForReply)
+		return;
+
+	var name = $("#name").val().trim();
+	var teamName = $("#team-name").val().trim();
+	var teamMembers = Number($("#team-members").val());
+
+	if(name === "")
+	{
+		$("#name").addClass("missing");
+		return;
+	}
+
+	var data = {
+		Name: name,
+		TeamMembers: teamMembers
+	};
+
+	if(teamName !== "")
+		data.TeamName = teamName;
+
+	waitingForReply = true;
+	backendCall("Register",
+			data,
+			function(res)
+			{
+				waitingForReply = false;
+
+				if(res.Status === 0)
+				{
+					waitingForReply = false;
+					displayKeyCode(res.Key);
+				}
+				else
+				{
+					alert("Ojdå, något gick fel. :(\n\nProva gärna igen eller kontakta cberry på IRC. Visa honom det här:\n\n" + JSON.stringify(res));
+				}
+			});
+}
+
 $(function(){
 	goToPage(document.location);
 
@@ -88,6 +140,13 @@ $(function(){
 				backendCall("SuggestTheme", theme);
 				$(this).find("input").prop("disabled", true);
 				$(this).find("input[type='text']").val("Tack!");
+				return false;
+			});
+
+	$("#registration-form input, select").click(function() { $(this).removeClass("missing"); });
+	$("#registration-form").submit(function()
+			{
+				register();
 				return false;
 			});
 });

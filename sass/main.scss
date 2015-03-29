@@ -3,6 +3,8 @@ $edge-shadow-color: #c0c0c0;
 $banner-color: #202020;
 $logo-color: #d0d0d0;
 
+$interact-color: #70f070;
+
 body
 {
 	background-color: $background-color;
@@ -247,6 +249,8 @@ body
 	margin-top: 100px;
 	>div
 	{
+		font-family: "Droid Sans";
+		font-size: 14pt;
 		color: $banner-color;
 		margin-bottom: 100px;
 		//text-shadow: 1px 1px 2px #808080;
@@ -263,8 +267,6 @@ body
 
 		p
 		{
-			font-family: "Droid Sans";
-			font-size: 14pt;
 			margin-bottom: 20px;
 			font-weight: 300;
 
@@ -370,7 +372,7 @@ body
 
 		&:focus
 		{
-			border: 1px solid #70f070;
+			border: 1px solid $interact-color;
 			border-right: none;
 		}
 
@@ -387,7 +389,7 @@ body
 	input[type='submit']
 	{
 		font-weight: 300;
-		background-color: #70f070;
+		background-color: $interact-color;
 		color: white;
 		width: 100px;
 
@@ -410,6 +412,123 @@ body
 	{
 		position: relative;
 		font-size: 20pt;
+	}
+}
+
+#registration-form
+{
+	width: 100%;
+	margin-top: 20px;
+
+	>div
+	{
+		display: table;
+		width: 100%;
+
+		>div
+		{
+			display: table-row;
+			width: 100%;
+
+			div
+			{
+				display: table-cell;
+				padding: 10px;
+
+				&:first-child
+				{
+					text-align: right;
+					width: 1%;
+					white-space: nowrap;
+					&:after
+					{
+						content: ":";
+					}
+				}
+
+				input, select
+				{
+					height: 40px;
+					background-color: white;
+					font-size: 14pt;
+					font-family: "Source Sans Pro";
+					font-weight: 400;
+					width: 100%;
+					border: 1px solid $banner-color;
+					padding-left: 10px;
+					box-sizing: border-box;
+
+					&:focus
+					{
+						background-color: white;
+						border: 1px solid lightgray;
+					}
+
+					&:disabled
+					{
+						background: none;
+						border-color: $background-color;
+
+						transition: background, border-color 0.2s, 0.2s;
+
+						color: $banner-color;
+					}
+
+					&.missing
+					{
+						background-color: #ffaaaa;
+						transition: background-color 0.2s;
+					}
+				}
+			}
+		}
+	}
+
+	#register-button
+	{
+		background-color: $interact-color;
+		font-weight: 300;
+		color: $background-color;
+		border: none;
+		font-size: 20pt;
+		width: 140px;
+		height: 48px;
+		margin-left: auto;
+		margin-right: auto;
+		font-family: "Source Sans Pro";
+		cursor: pointer;
+		display: block;
+		margin-top: 30px;
+
+		&:hover
+		{
+			background-color: #a0f0a0;
+		}
+
+		&:disabled
+		{
+			background-color: #b8b8b8; 
+			cursor: initial;
+			transition: background-color 0.2s;
+		}
+	}
+}
+
+#keycode-display
+{
+	display: none;
+	margin-top: 30px;
+
+	#keycode
+	{
+		margin-top: 40px;
+		margin-bottom: 40px;
+		font-size: 36pt;
+		width: 100%;
+		text-align: center;
+		font-family: monospace, "Lucida Console";
+
+		position: relative;
 	}
 }
 

@@ -10,6 +10,7 @@
 
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/jquery.countdown.min.js"></script>
+		<script src="js/jquery.scrollTo.min.js"></script>
 
 		<script src="js/main.js"></script>
 	</head>
@@ -68,19 +69,60 @@
 					</div>
 					<div id="rules-page">
 						<h2>Regler</h2>
-						<p>
-							<ul>
-								<li>När jammet börjar kommer det att släppas ett tema som spelet ska knyta an till. Det är fritt fram att tolka temat på roliga sätt.</il> 
-								<li>Alla motorer, frameworks och programmeringsspråk är tillåtna (egna, open source och kommersiella/proprietära).</li>
-								<li>Man kan delta som ett lag eller ensam.</li>
-								<li>Alla typer av spel hör hemma här. Om det går att spela så platsar det i LBS Game Jam!</li>
-								<li>Analoga spel (läs: brädspel) är varmt välkomna!</li>
-							</ul>
-						</p>
+						<ul>
+							<li>När jammet börjar kommer det att släppas ett tema som spelet ska knyta an till. Det är fritt fram att tolka temat på roliga sätt.</il> 
+							<li>Alla motorer, frameworks och programmeringsspråk är tillåtna (egna, open source och kommersiella/proprietära).</li>
+							<li>Man kan delta som ett lag eller ensam.</li>
+							<li>Alla typer av spel hör hemma här. Om det går att spela så platsar det i LBS Game Jam!</li>
+							<li>Analoga spel (läs: brädspel) är varmt välkomna!</li>
+						</ul>
 					</div>
 					<div id="registration-page">
 						<h2>Anmälan</h2>
-						<p>Anmälan öppnar inom kort!<p>
+						<p>Anmälan öppnar inom kort!</p>
+						<div>
+							<form method="post" id="registration-form">
+								<div>
+									<div>
+										<div>Namn</div><div><input id="name" type="text"></div>
+									</div>
+									<div>
+										<div>Lagnamn</div>
+										<div><input id="team-name" placeholder="Valfritt, kan lämnas blankt" type="text"></div>
+									</div>
+									<div>
+										<div>Antal lagmedlemmar</div>
+										<div>
+											<select id="team-members">
+												<option value=1>1 (ensam)</option>
+												<option value=2>2</option>
+												<option value=3>3</option>
+												<option value=4>4</option>
+												<option value=5>5</option>
+												<option value=6>6</option>
+												<option value=7>7</option>
+												<option value=8>8</option>
+												<option value=9>9</option>
+												<option value=10>10</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<input type="submit" id="register-button" value="Anmäl">
+							</form>
+							<div id="keycode-display">
+								<p><strong>Du är nu anmäld!</strong></p>
+								<p>Här är din nyckel. Den behöver du när du lämnar in ditt bidrag för att
+								koppla bidraget till dig eller ditt lag. Så se till att spara den!</p>
+								<div id="keycode">
+									ABCDE12345
+								</div>
+								<p>
+									Om du trots allt lyckas bli av med din nyckel kan du be om hjälp på
+									<a href="#irc" onClick="goToPage(this.href, true); return false">IRC</a>. Lycka till! :)
+								</p>
+							</div>
+						</div>
 					</div>
 					<div id="irc-page">
 						<h2>IRC</h2>
