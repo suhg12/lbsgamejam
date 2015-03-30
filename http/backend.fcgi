@@ -69,7 +69,7 @@ def register_team(data, config, env):
         return create_error_result(1, 'team-members')
 
     # generate key
-    key = ''.join(random.SystemRandom().choice(string.uppercase + string.digits) for _ in xrange(10))
+    key = ''.join(random.SystemRandom().choice(string.uppercase + string.digits) for _ in xrange(5))
 
     # make database entry
     if not database_insert(config,
