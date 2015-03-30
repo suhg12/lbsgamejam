@@ -51,7 +51,7 @@ def add_theme_suggestion(data, config, env):
         return str(type(data))
 
     database_insert(config,
-            "INSERT INTO ThemeSuggestions (`From`, `Theme`) VALUES (%s, %s)",
+            "INSERT INTO ThemeSuggestions (Host, Theme) VALUES (%s, %s)",
             (env['REMOTE_ADDR'], data))
             
     return "done";
