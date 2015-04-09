@@ -128,7 +128,7 @@ function revealTheme()
 $(function(){
 	goToPage(document.location);
 
-	var revealDate = new Date("2015/04/09 16:28:00 UTC");
+	var revealDate = new Date("2015/04/09 16:35:00 UTC");
 	var now = new Date();
 
 	if(revealDate < now)

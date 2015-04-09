@@ -3,4 +3,5 @@ http/css/*.css
 *.swp
 backend.conf
 sql.login
+theme
 
