@@ -112,7 +112,7 @@ function revealTheme()
 		{
 			setTimeout(function()
 					{
-						$("#theme-display").text("TEMA: " + theme);
+						$("#theme-display>span").text(theme);
 						$("#theme-display").fadeIn(3000);
 					}, 1300);
 		},
@@ -128,7 +128,7 @@ function revealTheme()
 $(function(){
 	goToPage(document.location);
 
-	var revealDate = new Date("2015/04/09 16:35:00 UTC");
+	var revealDate = new Date("2015/04/09 16:45:00 UTC");
 	var now = new Date();
 
 	if(revealDate < now)
@@ -137,7 +137,7 @@ $(function(){
 			dataType: "text",
 			success: function(theme)
 			{
-				$("#theme-display").text("TEMA: " + theme);
+				$("#theme-display>span").text(theme);
 				$("#theme-display").show();
 			},
 			error: function()

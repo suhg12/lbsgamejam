@@ -351,11 +351,19 @@ body
 	{
 		display: none;
 		font-size: 40pt;
+		font-weight: 300; 
 
 		&.error
 		{
 			color: red;
 			font-size: 20pt;
+		}
+		
+		>span
+		{
+			font-weight: 600; 
+			margin-left: 0px;
+			margin-right: 0px;
 		}
 	}
 }
