@@ -1,0 +1,4 @@
+SQL_HOST=host
+SQL_USER=user
+SQL_PASS=pass
+SQL_DB=db
