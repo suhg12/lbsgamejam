@@ -128,7 +128,7 @@ function revealTheme()
 $(function(){
 	goToPage(document.location);
 
-	var revealDate = new Date("2015/04/09 16:45:00 UTC");
+	var revealDate = new Date("2015/04/10 06:00 UTC");
 	var now = new Date();
 
 	if(revealDate < now)
@@ -148,7 +148,7 @@ $(function(){
 			}});
 	else
 		$("#countdown")
-			.countdown(revealDate/*"2015/04/09 16:08:10 UTC"*/, function(event) {
+			.countdown(revealDate, function(event) {
 				var totalHours = event.offset.totalDays * 24 + event.offset.hours;
 				$(this).find("#time-display").html(
 						totalHours + event.strftime(' timmar <span>|</span> %-M %!M:minut,minuter; <span>|</span> %-S %!S:sekund,sekunder;')
