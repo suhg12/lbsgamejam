@@ -346,6 +346,18 @@ body
 		margin-right: 50px;
 		font-weight: 100;
 	}
+	
+	#theme-display
+	{
+		display: none;
+		font-size: 40pt;
+
+		&.error
+		{
+			color: red;
+			font-size: 20pt;
+		}
+	}
 }
 
 

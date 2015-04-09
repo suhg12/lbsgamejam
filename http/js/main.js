@@ -102,16 +102,61 @@ function register()
 			});
 }
 
+function revealTheme()
+{
+	$("#time-display").fadeOut(1400)
+	$.ajax({
+		url: "/theme",
+		dataType: "text",
+		success: function(theme)
+		{
+			setTimeout(function()
+					{
+						$("#theme-display").text("TEMA: " + theme);
+						$("#theme-display").fadeIn(3000);
+					}, 1300);
+		},
+		error: function()
+		{
+			$("#theme-display").text("Din klocka verkar vara lite för snabb, och inget tema har valts ut än. Prova att ladda om sidan!");
+			$("#theme-display").addClass("error");
+			$("#theme-display").fadeIn(1000);
+		}
+	});
+}
+
 $(function(){
 	goToPage(document.location);
 
-	$("#countdown")
-		.countdown("2015/04/10 06:00 UTC", function(event) {
-			var totalHours = event.offset.totalDays * 24 + event.offset.hours;
-			$(this).html(
-					totalHours + event.strftime(' timmar <span>|</span> %-M %!M:minut,minuter; <span>|</span> %-S %!S:sekund,sekunder;')
-					);
-		});
+	var revealDate = new Date("2015/04/09 16:28:00 UTC");
+	var now = new Date();
+
+	if(revealDate < now)
+		$.ajax({
+			url: "/theme",
+			dataType: "text",
+			success: function(theme)
+			{
+				$("#theme-display").text("TEMA: " + theme);
+				$("#theme-display").show();
+			},
+			error: function()
+			{
+				$("#theme-display").text("Din klocka verkar vara lite för snabb, och inget tema har valts ut än. Prova att ladda om sidan!");
+				$("#theme-display").addClass("error");
+				$("#theme-display").show();
+			}});
+	else
+		$("#countdown")
+			.countdown(revealDate/*"2015/04/09 16:08:10 UTC"*/, function(event) {
+				var totalHours = event.offset.totalDays * 24 + event.offset.hours;
+				$(this).find("#time-display").html(
+						totalHours + event.strftime(' timmar <span>|</span> %-M %!M:minut,minuter; <span>|</span> %-S %!S:sekund,sekunder;')
+						);
+			}).on("finish.countdown", function()
+				{
+					revealTheme();
+				});
 
 	$("#nav-table>a").click(function()
 			{
