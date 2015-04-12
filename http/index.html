@@ -50,6 +50,7 @@
 						<a href="#rules"><div class="link">Regler</div></a>
 						<a href="#register"><div class="link">Anmälan</div></a>
 						<a href="#irc"><div class="link">Chatt / IRC</div></a>
+						<a href="#submit"><div class="link">Inlämning</div></a>
 						<span><div class="link">Resultat</div></span>
 					</div>
 				</div>
@@ -142,6 +143,16 @@
 						<h2>IRC</h2>
 						<p>Chatta med andra deltagare på IRC! Vi finns på <strong>#lbsgamejam</strong> på QuakeNet. Nedan finner du också en webbclient om du inte har lust att skaffa en egen. Välj bara ett namn och tryck på join!</p>
 						<iframe id="webchat" src="https://webchat.quakenet.org/?channels=lbsgamejam&uio=d4"></iframe>
+					</div>
+					<div id="submit-page">
+						<h2>Inlämning</h2>
+						<p>Lämna in ditt jävla <strong>skitspel</strong>.</p>
+
+						<form id="upload-form" method="post" action="backend.fcgi/UploadEntry" enctype="multipart/form-data">
+							ZIP, RAR eller liknande filarkiv: <input type="file" name="archive" id="game-archive"><br>
+							...eller länk till ner laddning:<br>
+							<input type="submit" id="submit-button" value="Anmäl">
+						</form>
 					</div>
 					<div id="results-page">
 						<h2>Resultat</h2>

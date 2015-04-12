@@ -50,6 +50,20 @@ function backendCall(func, data, complete)
 			"json");
 }
 
+function uploadCall(complete)
+{
+	var files = $("#game-archive")[0].files;
+	if(files.length === 0)
+		return;
+
+	var data = new FormData();
+	data.append("Archive", files[0], files[0].name);
+
+	$.post("backend.fcgi/UploadEntry",
+			data,
+			complete, "json");
+}
+
 function displayKeyCode(code)
 {
 	$("#registration-form *").prop("disabled", true);
@@ -194,5 +208,11 @@ $(function(){
 				register();
 				return false;
 			});
+
+	// $("#upload-form").submit(function()
+	// 		{
+	// 			uploadCall(function(data) { console.log(data); });
+	// 			return false;
+	// 		});
 });
 

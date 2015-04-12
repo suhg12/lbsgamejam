@@ -532,34 +532,34 @@ body
 			}
 		}
 	}
+}
 
-	#register-button
+#register-button, #submit-button
+{
+	background-color: $interact-color;
+	font-weight: 300;
+	color: $background-color;
+	border: none;
+	font-size: 20pt;
+	width: 140px;
+	height: 48px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: "Source Sans Pro";
+	cursor: pointer;
+	display: block;
+	margin-top: 30px;
+
+	&:hover
 	{
-		background-color: $interact-color;
-		font-weight: 300;
-		color: $background-color;
-		border: none;
-		font-size: 20pt;
-		width: 140px;
-		height: 48px;
-		margin-left: auto;
-		margin-right: auto;
-		font-family: "Source Sans Pro";
-		cursor: pointer;
-		display: block;
-		margin-top: 30px;
+		background-color: #a0f0a0;
+	}
 
-		&:hover
-		{
-			background-color: #a0f0a0;
-		}
-
-		&:disabled
-		{
-			background-color: #b8b8b8; 
-			cursor: initial;
-			transition: background-color 0.2s;
-		}
+	&:disabled
+	{
+		background-color: #b8b8b8; 
+		cursor: initial;
+		transition: background-color 0.2s;
 	}
 }
 
