@@ -50,8 +50,12 @@ function backendCall(func, data, complete)
 			"json");
 }
 
+var uploading = false;
 function uploadEntry(complete)
 {
+	if(uploading)
+		return;
+
 	var files = $("#entry-archive")[0].files;
 	var data = new FormData();
 
@@ -98,6 +102,10 @@ function uploadEntry(complete)
 	//console.log(data.getAll())
 
 	console.log("sending");
+	if(file)
+		$("#submit-button").val("Laddar upp...");
+
+	uploading = true;
 	$.ajax({
 		url: "/backend.fcgi/UploadEntry",
 		data: data,
@@ -108,13 +116,22 @@ function uploadEntry(complete)
 			{
 				console.log("result: ", result);
 				if(result.Status === 4 || result.Status === 1)
-					alert("Ett fel inträffade :(");
+					alert("Ojdå, något gick fel. :(\n\nProva gärna igen eller kontakta cberry på IRC. Visa honom det här:\n\n" + JSON.stringify(result));
 				else if(result.Status === 3)
 					$("#wrong-key-message").fadeIn();
 				else if(result.Status === 2)
 					alert("Filen är för stor. Den får vara som högst 50 MB.");
 				else if(result.Status === 0)
-					alert("Klar :)");
+				{
+					if(file)
+						$("#submit-button").val("Uppladdat!");
+
+					$("#upload-form *").prop("disabled", true);
+
+					$("#upload-done").fadeIn(1000);
+					$(document).scrollTo($("#upload-done"), 1000);
+				}
+				uploading = false;
 			},
 		dataType: "json"});
 }
