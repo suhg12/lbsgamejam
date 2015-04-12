@@ -97,7 +97,7 @@
 						lämna in ditt bidrag när jammet är slut. Om du tappar bort din nyckel kan du kontakta någon av arrangörerna, exempelvis på
 						<a href="#irc" onClick="goToPage(this.href, true); return false">IRC</a>.</p>
 						<div>
-							<form method="post" id="registration-form">
+							<form method="post" class="form" id="registration-form">
 								<div>
 									<div>
 										<div>Namn</div><div><input id="name" type="text"></div>
@@ -148,10 +148,28 @@
 						<h2>Inlämning</h2>
 						<p>Lämna in ditt jävla <strong>skitspel</strong>.</p>
 
-						<form id="upload-form" method="post" action="backend.fcgi/UploadEntry" enctype="multipart/form-data">
-							ZIP, RAR eller liknande filarkiv: <input type="file" name="archive" id="game-archive"><br>
-							...eller länk till ner laddning:<br>
-							<input type="submit" id="submit-button" value="Anmäl">
+						<form id="upload-form" class="form" method="post" action="backend.fcgi/UploadEntry" enctype="multipart/form-data">
+							<div>
+								<div>
+									<div>Kodnyckel</div><div><input placeholder="5 tecken" id="entry-code" type="text"><br><span id="wrong-key-message">Felaktig nyckel.</span></div>
+								</div>
+								<div>
+									<div>Spelets namn</div><div><input id="entry-name" type="text"></div>
+								</div>
+								<div>
+									<div>ZIP, RAR eller liknande filarkiv (max 50 MB)</div><div><input type="file" name="archive" id="entry-archive"></div>
+								</div>
+								<div>
+									<div>...eller länk till nedladdning</div><div><input id="entry-link" type="text"></div>
+								</div>
+								<div>
+									<div>Kort beskrivning av spelet</div>
+									<div>
+										<textarea id="entry-desc"></textarea>
+									</div>
+								</div>
+							</div>
+							<input type="submit" id="submit-button" value="Lämna in">
 						</form>
 					</div>
 					<div id="results-page">

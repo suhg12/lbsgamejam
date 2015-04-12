@@ -59,19 +59,7 @@ def database_create_entry(config, code, name, link, desc, host):
 
     try:
         cursor.execute("SELECT Id FROM Participants WHERE KeyCode = %s", (code,))
-        sys.stderr.write("Selected participant")
         for (participant) in cursor:
-
-            sys.stderr.write("PartID: %d"%(participant[0]))
-            sys.stderr.write("PartID: %s"%(str(type(participant[0]))))
-            sys.stderr.write(name)
-            sys.stderr.write(str(type(name)))
-            sys.stderr.write(link)
-            sys.stderr.write(str(type(link)))
-            sys.stderr.write(desc)
-            sys.stderr.write(str(type(desc)))
-            sys.stderr.write(host)
-            sys.stderr.write(str(type(host)))
 
             cursor.execute("INSERT INTO Entries (Participant, Name, Link, Description, Host) VALUES (%s, %s, %s, %s, %s)",
                 (participant[0],
@@ -133,27 +121,39 @@ def upload_entry(data, config, env):
         environ=env,
         keep_blank_values=True
     )
+    
+    if not "Code" in post:
+        return {'Status': 1, 'Missing': "Code"}
 
-    if "archive" not in post:
-        return { 'Status': 1 }
+    if not "Name" in post:
+        return {'Status': 1, 'Missing': "Name"}
 
-    filename = database_create_entry(config, '80HL4', "The Game", "http://www.thegame.org", "The game is a game.", env['REMOTE_ADDR'])
+    if not "Description" in post:
+        return {'Status': 1, 'Missing': "Description"}
+
+    filename = database_create_entry(config,
+            post["Code"].value,
+            post["Name"].value,
+            post["Link"].value if "Link" in post else None,
+            post["Description"].value,
+            env['REMOTE_ADDR'])
     if filename == 2:
         return {'Status': 3}
     elif filename == 1:
         return {'Status': 4, 'Message': 'database error'}
 
-    fileitem = post["archive"]
+    if "Archive" in post:
+        fileitem = post["Archive"]
 
-    if fileitem.file:
-        ext = fileitem.filename.decode('utf8').split('.')[-1]
-        with open("../entries/%s.%s"%(filename, ext), 'wb') as output_file:
-            while 1:
-                data = fileitem.file.read(1024)
-                # End of file
-                if not data:
-                    break
-                output_file.write(data)
+        if fileitem.file:
+            ext = fileitem.filename.decode('utf8').split('.')[-1]
+            with open("../entries/%s.%s"%(filename, ext), 'wb') as output_file:
+                while 1:
+                    data = fileitem.file.read(1024)
+                    # End of file
+                    if not data:
+                        break
+                    output_file.write(data)
 
     return { 'Status': 0 }
 

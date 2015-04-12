@@ -50,18 +50,73 @@ function backendCall(func, data, complete)
 			"json");
 }
 
-function uploadCall(complete)
+function uploadEntry(complete)
 {
-	var files = $("#game-archive")[0].files;
-	if(files.length === 0)
-		return;
-
+	var files = $("#entry-archive")[0].files;
 	var data = new FormData();
-	data.append("Archive", files[0], files[0].name);
 
-	$.post("backend.fcgi/UploadEntry",
-			data,
-			complete, "json");
+	var file = false;
+	
+	if(files.length !== 0)
+	{
+		file = true;
+		data.append("Archive", files[0], files[0].name);
+	}
+
+	var entryCode = $("#entry-code").val().trim();
+	var entryName = $("#entry-name").val().trim();
+	var entryDesc = $("#entry-desc").val().trim();
+
+	var missing = false;
+	
+	if(entryCode === "")
+	{
+		$("#entry-code").addClass("missing");
+		missing = true;
+	}
+	
+	if(entryName === "")
+	{
+		$("#entry-name").addClass("missing");
+		missing = true;
+	}
+	
+	if(entryDesc === "")
+	{
+		$("#entry-desc").addClass("missing");
+		missing = true;
+	}	
+
+	if(missing)
+		return;
+	
+	data.append("Code", entryCode);
+	data.append("Name", entryName);
+	data.append("Description", entryDesc);
+	data.append("Link", $("#entry-link").val().trim());
+	
+	//console.log(data.getAll())
+
+	console.log("sending");
+	$.ajax({
+		url: "/backend.fcgi/UploadEntry",
+		data: data,
+		processData: false,
+		type: "POST",
+		contentType: false,
+		success: function(result)
+			{
+				console.log("result: ", result);
+				if(result.Status === 4 || result.Status === 1)
+					alert("Ett fel inträffade :(");
+				else if(result.Status === 3)
+					$("#wrong-key-message").fadeIn();
+				else if(result.Status === 2)
+					alert("Filen är för stor. Den får vara som högst 50 MB.");
+				else if(result.Status === 0)
+					alert("Klar :)");
+			},
+		dataType: "json"});
 }
 
 function displayKeyCode(code)
@@ -209,10 +264,15 @@ $(function(){
 				return false;
 			});
 
-	// $("#upload-form").submit(function()
-	// 		{
-	// 			uploadCall(function(data) { console.log(data); });
-	// 			return false;
-	// 		});
+	$("#upload-form").submit(function()
+			{
+				uploadEntry();
+				return false;
+			});
+	$("#upload-form input, textarea").click(function() { $(this).removeClass("missing"); });
+	$("#entry-code").click(function()
+			{
+				$("#wrong-key-message").fadeOut();
+			});
 });
 

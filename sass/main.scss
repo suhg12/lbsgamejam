@@ -464,7 +464,7 @@ body
 	}
 }
 
-#registration-form
+.form
 {
 	width: 100%;
 	margin-top: 20px;
@@ -489,13 +489,20 @@ body
 					text-align: right;
 					width: 1%;
 					white-space: nowrap;
+					vertical-align: top;
+					padding-top: 18px;
 					&:after
 					{
 						content: ":";
 					}
 				}
 
-				input, select
+				textarea
+				{
+					height: 200px !important;
+				}
+
+				input, select, textarea
 				{
 					height: 40px;
 					background-color: white;
@@ -506,6 +513,18 @@ body
 					border: 1px solid $banner-color;
 					padding-left: 10px;
 					box-sizing: border-box;
+
+					&[type="file"]
+					{
+						background: none;
+						border: none;
+
+						&:focus
+						{
+							background-color: none !important;
+							border: none !important;
+						}
+					}
 
 					&:focus
 					{
@@ -579,5 +598,12 @@ body
 
 		position: relative;
 	}
+}
+
+#wrong-key-message
+{
+	line-height: 2em;
+	color: red;
+	display: none;
 }
 
