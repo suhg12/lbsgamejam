@@ -267,6 +267,28 @@ body
 			text-shadow: 2px 2px 2px #808080;
 		}
 
+		h3
+		{
+			font-family: "Source Sans Pro";
+			font-size: 30pt;
+			margin-bottom: 20px;
+			margin-top: 20px;
+			text-shadow: 2px 2px 2px #808080;
+		}
+
+		h4
+		{
+			font-family: "Source Sans Pro";
+			font-size: 20pt;
+			margin-bottom: 20px;
+			text-shadow: 2px 2px 2px #808080;
+		}
+
+		hr
+		{
+			margin-top: 40px;
+		}
+
 		strong
 		{
 			font-weight: 600;
@@ -285,6 +307,7 @@ body
 			font-family: "Droid Sans";
 			font-size: 14pt;
 			font-weight: 300;
+			margin-top: 10px;
 
 			li
 			{
@@ -616,4 +639,20 @@ body
 #submit-button
 {
 	width: 165px !important;
+}
+
+.entry
+{
+	h1 
+	{
+
+	}
+	h2
+	{
+
+	}
+	h3
+	{
+		font-size: 20px;
+	}
 }

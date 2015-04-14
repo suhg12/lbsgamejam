@@ -50,7 +50,7 @@
 						<a href="#rules"><div class="link">Regler</div></a>
 						<a href="#register"><div class="link">Anmälan</div></a>
 						<a href="#irc"><div class="link">Chatt / IRC</div></a>
-						<a href="#submit"><div class="link">Inlämning</div></a>
+						<a href="#entry"><div class="link">Bidrag</div></a>
 						<span><div class="link">Resultat</div></span>
 					</div>
 				</div>
@@ -144,40 +144,76 @@
 						<p>Chatta med andra deltagare på IRC! Vi finns på <strong>#lbsgamejam</strong> på QuakeNet. Nedan finner du också en webbclient om du inte har lust att skaffa en egen. Välj bara ett namn och tryck på join!</p>
 						<iframe id="webchat" src="https://webchat.quakenet.org/?channels=lbsgamejam&uio=d4"></iframe>
 					</div>
-					<div id="submit-page">
-						<h2>Inlämning</h2>
-						<p>Här lämnar ni in era bidrag!</p>
-						<p>På grund av att inlämningsfunktionaliteten blev fördröjd så låter vi den vara
-							öppen tills förmiddagen den 13 april.</p>
+					<div id="entry-page">
+						<h2>Bidrag</h2>
+						<p>Här ligger alla bidrag som vi fått in!</p>
 
-						<form id="upload-form" class="form" method="post" action="backend.fcgi/UploadEntry" enctype="multipart/form-data">
-							<div>
-								<div>
-									<div>Kodnyckel</div><div><input placeholder="5 tecken" id="entry-code" type="text"><br><span id="wrong-key-message">Felaktig nyckel.</span></div>
-								</div>
-								<div>
-									<div>Spelets namn</div><div><input id="entry-name" type="text"></div>
-								</div>
-								<div>
-									<div>ZIP, RAR eller liknande filarkiv (max 50 MB)</div><div><input type="file" name="archive" id="entry-archive"></div>
-								</div>
-								<div>
-									<div>...eller länk till nedladdning/webbklient</div><div><input id="entry-link" type="text"></div>
-								</div>
-								<div>
-									<div>Kort beskrivning av spelet</div>
-									<div>
-										<textarea id="entry-desc"></textarea>
-									</div>
-								</div>
-							</div>
-							<input type="submit" id="submit-button" value="Lämna in">
-						</form>
-						<div id="upload-done">
-							<p><strong>Ditt bidrag är nu inlämnat!</strong></p>
-							<p>Bidragen kommer att bedömas och en vinnare koras inom de närmaste veckorna.</p>
-							<p>Tack för den här gången!</p>
+						<div class="entry">
+							<h3>JJJ</h3>
+							<h4>Christopher</h4>
+							<p>Ett litet spel där man hoppar över hinder. Spelet blir snabbare och snabbare i takt med att man spelar och poängen som man får ökar. Det är allt.</p>
+							<a href="entries/11.rar">Download</a>
 						</div>
+						<hr>
+						<div class="entry">
+							<h3>Maze Creep</h3>
+							<h4>Simon Mölzer</h4>
+							<p>Styr med piltangenterna och undvik de gröna små spökena.<br>Ville att spelet skulle utspela sig i en labyrinth men hann inte implementera ai eller labyrinth generatorn för det.</p>
+							<a href="entries/12.zip">Download</a>
+						</div>
+						<hr>
+						<div class="entry">
+							<h3>The Worlds End</h3>
+							<h4>Angelo Logahd</h4>
+							<p>
+							Det är tio minuter kvar innan jordens undergång. 
+							De flesta har flytt och räddningspersonalen har glömt bort en stad. 
+							Nu är det upp till dig att rädda så många som möjligt.
+							Destu snabbare du räddar en person destu mer tid har du att rädda fler.<br>
+							<br>
+							Mission: <br>
+							Ta dig till den gröna flagan.<br><br>
+								Styrning: <br>
+								Pc:  
+								<ul>
+									<li>Escape för att avsluta en spel omgång</li>
+									<li>Musen för att styra alla menyer</li>
+									<li>D för att styra framåt</li>
+									<li>S för att styra neråt</li>
+									<li>Klicka på space för att lyfta</li>
+									<li>Left Shift för att använda extra speed</li>
+								</ul>
+
+								Ps3 kontroll:
+								<ul>
+									<li>Höger knappen eller vänster spaken åt höger riktning för att styra framåt</li>
+									<li>X för att lyfta</li>
+									<li>Fyrkant för att använda extra speed</li>
+								<ul>
+							</p>
+							<a href="entries/13.rar">Download</a>
+						</div>
+						<hr>
+						<div class="entry">
+							<h3>Bullet Time Hell!</h3>
+							<h4>Kristoffer F, Jessi B m. fl?</h4>
+							<p>Bullet hell with matrix style bullet time.</p>
+							<a href="entries/14.rar">Download</a>
+						</div>
+						<hr>
+						<div class="entry">
+							<h3>Haren och sköldpaddan</h3>
+							<h4>Team: Asian Carry</h4>
+							<p>Öppna i windowed mode.<br>
+
+							Använd piltangenter/WASD för att röra dig, hoppa med space och interacta med "Z".<br>
+
+							Ta klockor för att tiden inte ska stanna, den röda klockan är målet på varje level.<br>
+
+								Av: Carl Hiselius, Tobias Pogén, Alex Sandén och Fredrik Böhme (SUHG13)</p>
+							<a href="entries/15.rar">Download</a>
+						</div>
+
 					</div>
 					<div id="results-page">
 						<h2>Resultat</h2>
