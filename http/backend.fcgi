@@ -159,9 +159,9 @@ def upload_entry(data, config, env):
 
 
 POST_METHODS = {
-            '/SuggestTheme': add_theme_suggestion,
-            '/Register': register_team,
-            '/UploadEntry': upload_entry
+            #'/SuggestTheme': add_theme_suggestion,
+            #'/Register': register_team,
+            #'/UploadEntry': upload_entry
         }
 
 GET_METHODS = {
